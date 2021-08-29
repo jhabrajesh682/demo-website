@@ -1,0 +1,47 @@
+<mat-card class="materialCard">
+  <img  width="190px" height="25px" src="../../assets/be045188c4cc96d2c6009e126a3a63ab.png"class="center" alt="Logo" />
+  <mat-card-subtitle class="textCenter mt-4 ml-2">
+    Welcome Back
+  </mat-card-subtitle>
+  <mat-card-title  class="textCenterSubtitle mt-4">
+    Login to your account 
+  </mat-card-title>
+  
+  <form (ngSubmit)="userLogin()" class="example-form mt-5">
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Enter Email</mat-label>
+      <input matInput name="loginEmail" id="loginEmail" [(ngModel)]="loginObj.loginEmail"
+        placeholder="Enter your Email">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" name="loginPassword" id="loginPassword"
+        [(ngModel)]="loginObj.loginPassword" placeholder="Enter your password">
+      <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div style="width: 100%;">
+      <div style="width: 50%; float: left;">
+      <input type="checkbox" name="checkbox" id="checkbox" [(ngModel)]="loginObj.checkbox" class="mr-1">
+      <mat-label>Remember Me</mat-label>
+      </div>
+      <div style="margin-left: 60%; ">
+        <mat-label >Forgot Password?</mat-label>
+      </div>
+    </div>
+   <div>
+      
+   
+     
+     
+   </div>
+  
+    <button type="submit" [disabled]="disableLogin"style="height:50px;width:80%" class="buttonStyle" mat-raised-button color="primary">
+      {{curSec > 0 ? curSec : 'Log In'}}</button>
+   
+  </form>
+</mat-card>
+

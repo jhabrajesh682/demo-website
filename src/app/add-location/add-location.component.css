@@ -1,0 +1,15 @@
+.materialCard {
+  width: 70%;
+  margin-left: 10%;
+  padding: 5%;
+  margin-top: 1%;
+}
+agm-map {
+  height: 300px;
+}
+.materialCardMap {
+  width: 40%;
+  margin-left: 10%;
+  padding: 5%;
+  margin-top: 1%;
+}

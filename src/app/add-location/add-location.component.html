@@ -1,0 +1,78 @@
+<mat-toolbar color="primary">
+   
+    
+    <div style="width: 100%;">
+        <div style="width: 70%; float: left;">
+        <span class="spanStytle">Demo App</span>
+        </div>
+        <div style="margin-left: 50%; ">
+            <button mat-raised-button data-toggle="modal" data-target=".bd-example-modal-lg">Add Location</button>
+        </div>
+    </div>
+</mat-toolbar> 
+
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Location</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div style="width: 100%;">
+                <div style=" float: left;">
+              
+                    <div class="modal-body card ml-4 mt-2" style="width: 20rem; height:24rem">
+                        <form (ngSubmit)="locationSubmit()" class="example-form mt-5">
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Location</mat-label>
+                                <select matNativeControl [(ngModel)]="locationObj.selectedLocation" name="location">
+                                    <option value="" selected></option>
+                                    <option *ngFor="let loc of locations" [value]="loc.value">
+                                        {{loc.viewValue}}
+                                    </option>
+                                </select>
+                            </mat-form-field><br>
+                
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Restricted To</mat-label>
+                                <input matInput name="restrictedTo" id="restrictedTo" [(ngModel)]="locationObj.restrictedTo"
+                                    placeholder="Restricted To">
+                            </mat-form-field><br>
+                            <mat-form-field class="example-full-width" appearance="fill">
+                                <mat-label>Enter location Name</mat-label>
+                                <input matInput name="locatioName" id="locatioName" [(ngModel)]="locationObj.locatioName"
+                                    placeholder="Enter location Name">
+                            </mat-form-field>
+                
+                        </form>
+                    </div>
+                
+                </div>
+                <!-- AGM map package is used in this project -->
+                <div>
+                    <mat-card class="materialCardMap" style="margin-left: 50%;">
+                        <agm-map [latitude]="lat" [longitude]="lng">
+                        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+                        </agm-map>
+                    </mat-card>
+                </div>
+            </div>
+            
+            <div class="modal-footer">
+                <div style="width: 100%;">
+                    <div style="width: 20%; margin-left: 30%;float: left;">
+                        <button type="button"style="height:50px;width:80%;color:black" class="btn btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                    <div >
+                    <button type="submit"style="height:50px;width:20%" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
